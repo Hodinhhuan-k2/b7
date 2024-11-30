@@ -1,0 +1,19 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def copy_file_content(source_fname, dest_fname):
+    try:
+        with open(source_fname, 'r') as source_file:
+            content = source_file.read()
+        
+        with open(dest_fname, 'w') as dest_file:
+            dest_file.write(content)
+        print(f"Nội dung của tệp {source_fname} đã được sao chép vào {dest_fname}")
+    except FileNotFoundError:
+        print(f"File '{source_fname}' không tồn tại.")
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Gọi hàm và sao chép từ file nguồn sang file đích
+source_path = 'source.txt'
+dest_path = 'destination.txt'
+copy_file_content(source_path, dest_path)
