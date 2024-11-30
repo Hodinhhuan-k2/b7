@@ -1,0 +1,35 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def count_file_content(file_path):
+    try:
+        # Khởi tạo các biến đếm
+        num_lines = 0
+        num_words = 0
+        num_chars = 0
+
+        # Mở file ở chế độ đọc
+        with open(file_path, 'r') as file:
+            for line in file:
+                # Đếm số dòng
+                num_lines += 1
+
+                # Đếm số từ trong dòng (sử dụng split để tách các từ)
+                words = line.split()
+                num_words += len(words)
+
+                # Đếm số ký tự trong dòng
+                num_chars += len(line)
+
+        # In kết quả
+        print(f"Số dòng trong file: {num_lines}")
+        print(f"Số từ trong file: {num_words}")
+        print(f"Số ký tự trong file: {num_chars}")
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' không tồn tại.")
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Nhập đường dẫn đến file
+file_path = input("Nhập đường dẫn tới file: ")
+count_file_content(file_path)
