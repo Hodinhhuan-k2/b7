@@ -1,0 +1,24 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def reverse_file_content(file_path):
+    try:
+        # Mở file ở chế độ đọc
+        with open(file_path, 'r') as file:
+            # Đọc nội dung của file
+            content = file.readlines()
+
+        # Đảo ngược nội dung
+        reversed_content = content[::-1]
+
+        # In nội dung đảo ngược
+        for line in reversed_content:
+            print(line, end='')  # `end=''` để tránh thêm ký tự '\n' không cần thiết
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' không tồn tại.")
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Đọc file và in đảo ngược kết quả
+file_path = input("Nhập đường dẫn tới file: ")
+reverse_file_content(file_path)
