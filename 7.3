@@ -1,0 +1,20 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def read_file(file_path):
+    try:
+        # Mở file ở chế độ đọc
+        with open(file_path, 'r') as file:
+            # Đọc toàn bộ nội dung của file
+            content = file.read()
+        
+        # In nội dung của file
+        print(content)
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' không tồn tại.")
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Nhập đường dẫn tới file
+file_path = input("Nhập đường dẫn tới file: ")
+read_file(file_path)
