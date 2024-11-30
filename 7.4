@@ -1,0 +1,10 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def file_read_from_head(fname, nlines):
+    from itertools import islice
+    with open(fname, 'r') as f:  # Mở file ở chế độ đọc
+        for line in islice(f, nlines):  # Đọc n dòng đầu tiên
+            print(line, end='')  # In dòng mà không thêm ký tự xuống dòng (vì dòng đã có \n)
+
+# Gọi hàm và đọc 2 dòng đầu tiên từ file test.txt
+file_read_from_head('test.txt', 2)
