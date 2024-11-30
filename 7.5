@@ -1,0 +1,14 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def file_read(fname):
+    # Ghi dữ liệu vào file (ở chế độ 'w' để ghi mới)
+    with open(fname, "w") as myfile:
+        myfile.write("Python Exercises\n")
+        myfile.write("Java Exercises")
+    
+    # Mở lại file ở chế độ đọc ('r') và in ra nội dung
+    with open(fname, "r") as txt:
+        print(txt.read())
+
+# Gọi hàm và đọc nội dung từ file abc.txt
+file_read('abc.txt')
