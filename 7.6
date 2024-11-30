@@ -1,0 +1,30 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+import sys
+import os
+
+def file_read_from_tail(fname, lines):
+    bufsize = 8192  # Kích thước buffer mỗi lần đọc
+    fsize = os.stat(fname).st_size  # Lấy kích thước của file
+    iter = 0  # Biến đếm số lần lặp
+
+    with open(fname) as f:
+        if bufsize > fsize:
+            bufsize = fsize - 1  # Đảm bảo không đọc quá nhiều
+
+        data = []
+        while True:
+            iter += 1
+            # Di chuyển con trỏ đến vị trí cần đọc
+            f.seek(fsize - bufsize * iter)
+
+            # Đọc dữ liệu vào buffer và thêm vào danh sách data
+            data.extend(f.readlines())
+
+            # Dừng khi đủ số dòng hoặc đã đọc hết file
+            if len(data) >= lines or f.tell() == 0:
+                print(''.join(data[-lines:]))  # In ra các dòng cuối
+                break
+
+# Gọi hàm và đọc 2 dòng cuối từ file test.txt
+file_read_from_tail('test.txt', 2)
