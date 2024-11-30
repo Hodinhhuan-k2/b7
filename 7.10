@@ -1,0 +1,22 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def find_longest_words_in_file(fname):
+    try:
+        with open(fname, 'r') as file:
+            text = file.read()
+        
+        words = text.split()  # Tách văn bản thành các từ
+        max_length = max(len(word) for word in words)  # Tìm chiều dài của từ dài nhất
+        longest_words = [word for word in words if len(word) == max_length]  # Tìm những từ dài nhất
+        
+        print(f"Những từ dài nhất (dài {max_length} ký tự):")
+        for word in longest_words:
+            print(word)
+    except FileNotFoundError:
+        print(f"File '{fname}' không tồn tại.")
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Gọi hàm và tìm từ dài nhất trong tệp
+file_path = input("Nhập tên tệp để tìm từ dài nhất: ")
+find_longest_words_in_file(file_path)
